@@ -12,7 +12,7 @@
   <url>https://github.com/raydac/mvn-golang</url>
 
   <properties>
-    <mvn.golang.go.version>1.10.2</mvn.golang.go.version>
+    <mvn.golang.go.version>1.20.0</mvn.golang.go.version>
     <mvn.golang.get.packages.file>${basedir}${file.separator}packages.txt</mvn.golang.get.packages.file>
     <go.wrapper.plugin.version>2.2.0</go.wrapper.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -65,33 +65,13 @@
         <artifactId>mvn-golang-wrapper</artifactId>
         <version>${go.wrapper.plugin.version}</version>
         <extensions>true</extensions>
+
+        <!-- FULLY SKIP GO DOWNLOAD & EXECUTION -->
         <configuration>
-          <!--<goPath>${basedir}</goPath>-->
-          <!--<enforceGoPathToEnd>true</enforceGoPathToEnd>-->
-          <!--<verbose>true</verbose>-->
+            <skipDownload>true</skipDownload>
+            <skip>true</skip>
         </configuration>
-        <executions>
-          <execution>
-            <id>default-build</id>
-            <configuration>
-              <packages>
-                <main>makeindex.go</main>
-              </packages>
-            </configuration>
-          </execution>
-          <execution>
-            <id>golang-run</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <packages>
-                <app>makeindex.go</app>
-              </packages>
-            </configuration>
-          </execution>
-        </executions>
+
       </plugin>
     </plugins>
   </build>
