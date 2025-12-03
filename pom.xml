@@ -65,13 +65,19 @@
         <artifactId>mvn-golang-wrapper</artifactId>
         <version>${go.wrapper.plugin.version}</version>
         <extensions>true</extensions>
+
+        <!-- THIS IS THE CRUCIAL FIX -->
         <configuration>
-          <!-- Skip downloading Go to avoid 403 error -->
-          <skipDownload>true</skipDownload>
+            <skipDownload>true</skipDownload>
         </configuration>
+
         <executions>
           <execution>
             <id>default-build</id>
+            <goals>
+              <goal>clean</goal>
+              <goal>install</goal>
+            </goals>
             <configuration>
               <packages>
                 <main>makeindex.go</main>
