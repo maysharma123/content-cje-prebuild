@@ -66,9 +66,8 @@
         <version>${go.wrapper.plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
+          <!-- Skip downloading Go to avoid 403 error -->
           <skipDownload>true</skipDownload>
-          <!--<enforceGoPathToEnd>true</enforceGoPathToEnd>-->
-          <!--<verbose>true</verbose>-->
         </configuration>
         <executions>
           <execution>
